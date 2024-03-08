@@ -1,0 +1,719 @@
+Program.Sub.ScreenSU.Start
+gui.F_Cust_Management..create
+gui.F_Cust_Management..caption("E-Order Ack")
+gui.F_Cust_Management..size(3650,2160)
+gui.F_Cust_Management..position(0,0)
+gui.F_Cust_Management..event(unload,Unload)
+gui.F_Cust_Management..alwaysontop(False)
+gui.F_Cust_Management..fontname("Arial")
+gui.F_Cust_Management..fontsize(8)
+gui.F_Cust_Management..forecolor(0)
+gui.F_Cust_Management..fontstyle(,,,,)
+gui.F_Cust_Management..BackColor(-2147483633)
+gui.F_Cust_Management..controlbox(True)
+gui.F_Cust_Management..maxbutton(False)
+gui.F_Cust_Management..minbutton(True)
+gui.F_Cust_Management..mousepointer(0)
+gui.F_Cust_Management..moveable(True)
+gui.F_Cust_Management..sizeable(False)
+gui.F_Cust_Management..ShowInTaskBar(True)
+gui.F_Cust_Management..titlebar(True)
+gui.F_Cust_Management.lbl1.create(label,"Contact e-mail",True,1935,255,1,200,200,True,0,Arial,8,-2147483633,0)
+gui.F_Cust_Management.txtContactEmail.create(textbox,"",True,3000,300,0,200,400,False,0,Arial,8,-2147483643,1)
+gui.F_Cust_Management.chkContact.create(checkbox)
+gui.F_Cust_Management.chkContact.caption("Turn on e-Order Acknowledgments for this contact?")
+gui.F_Cust_Management.chkContact.visible(True)
+gui.F_Cust_Management.chkContact.size(2970,400)
+gui.F_Cust_Management.chkContact.zorder(0)
+gui.F_Cust_Management.chkContact.position(200,800)
+gui.F_Cust_Management.chkContact.enabled(True)
+gui.F_Cust_Management.chkContact.alignment(0)
+gui.F_Cust_Management.chkContact.fontname("Arial")
+gui.F_Cust_Management.chkContact.fontsize(8)
+gui.F_Cust_Management.cmdSave.create(button)
+gui.F_Cust_Management.cmdSave.caption("Save")
+gui.F_Cust_Management.cmdSave.visible(True)
+gui.F_Cust_Management.cmdSave.size(855,375)
+gui.F_Cust_Management.cmdSave.zorder(0)
+gui.F_Cust_Management.cmdSave.position(100,1250)
+gui.F_Cust_Management.cmdSave.enabled(True)
+gui.F_Cust_Management.cmdSave.fontname("Arial")
+gui.F_Cust_Management.cmdSave.fontsize(8)
+gui.F_Cust_Management.cmdSave.event(click,cmdsave_click)
+
+
+gui.F_Audit..create
+gui.F_Audit..caption("E-Order Ack")
+gui.F_Audit..size(8835,4650)
+gui.F_Audit..position(0,0)
+gui.F_Audit..event(unload,Unload)
+gui.F_Audit..alwaysontop(False)
+gui.F_Audit..fontname("Arial")
+gui.F_Audit..fontsize(8)
+gui.F_Audit..forecolor(0)
+gui.F_Audit..fontstyle(,,,,)
+gui.F_Audit..BackColor(-2147483633)
+gui.F_Audit..controlbox(True)
+gui.F_Audit..maxbutton(False)
+gui.F_Audit..minbutton(True)
+gui.F_Audit..mousepointer(0)
+gui.F_Audit..moveable(True)
+gui.F_Audit..sizeable(False)
+gui.F_Audit..ShowInTaskBar(True)
+gui.F_Audit..titlebar(True)
+gui.F_Audit.lvwAudit.create(listview)
+gui.F_Audit.lvwAudit.view(3)
+gui.F_Audit.lvwAudit.addlistviewcolumn("Order No.",1500,0)
+gui.F_Audit.lvwAudit.addlistviewcolumn("Date/Time",3000,0)
+gui.F_Audit.lvwAudit.addlistviewcolumn("Contact",3500,0)
+gui.F_Audit.lvwAudit.visible(True)
+gui.F_Audit.lvwAudit.size(8480,4000)
+gui.F_Audit.lvwAudit.zorder(0)
+gui.F_Audit.lvwAudit.position(100,100)
+gui.F_Audit.lvwAudit.enabled(True)
+gui.F_Audit.lvwAudit.fontname("Arial")
+gui.F_Audit.lvwAudit.fontsize(8)
+
+
+gui.F_Order_Ack..create
+gui.F_Order_Ack..caption("Order Acknowledgment")
+gui.F_Order_Ack..size(3870,1425)
+gui.F_Order_Ack..position(0,0)
+gui.F_Order_Ack..event(unload,f_order_ack_unload)
+gui.F_Order_Ack..alwaysontop(False)
+gui.F_Order_Ack..fontname("Arial")
+gui.F_Order_Ack..fontsize(8)
+gui.F_Order_Ack..forecolor(0)
+gui.F_Order_Ack..fontstyle(,,,,)
+gui.F_Order_Ack..BackColor(-2147483633)
+gui.F_Order_Ack..controlbox(True)
+gui.F_Order_Ack..maxbutton(False)
+gui.F_Order_Ack..minbutton(True)
+gui.F_Order_Ack..mousepointer(0)
+gui.F_Order_Ack..moveable(True)
+gui.F_Order_Ack..sizeable(False)
+gui.F_Order_Ack..ShowInTaskBar(True)
+gui.F_Order_Ack..titlebar(True)
+gui.F_Order_Ack.chkPrint.create(checkbox)
+gui.F_Order_Ack.chkPrint.caption("Print")
+gui.F_Order_Ack.chkPrint.visible(True)
+gui.F_Order_Ack.chkPrint.size(855,255)
+gui.F_Order_Ack.chkPrint.zorder(0)
+gui.F_Order_Ack.chkPrint.position(200,200)
+gui.F_Order_Ack.chkPrint.enabled(True)
+gui.F_Order_Ack.chkPrint.alignment(0)
+gui.F_Order_Ack.chkPrint.fontname("Arial")
+gui.F_Order_Ack.chkPrint.fontsize(8)
+gui.F_Order_Ack.chkeOrderAck.create(checkbox)
+gui.F_Order_Ack.chkeOrderAck.caption("e-Order Acknowledgment")
+gui.F_Order_Ack.chkeOrderAck.visible(True)
+gui.F_Order_Ack.chkeOrderAck.size(2310,255)
+gui.F_Order_Ack.chkeOrderAck.zorder(0)
+gui.F_Order_Ack.chkeOrderAck.position(1300,200)
+gui.F_Order_Ack.chkeOrderAck.enabled(True)
+gui.F_Order_Ack.chkeOrderAck.alignment(0)
+gui.F_Order_Ack.chkeOrderAck.fontname("Arial")
+gui.F_Order_Ack.chkeOrderAck.fontsize(8)
+gui.F_Order_Ack.cmdOK.create(button)
+gui.F_Order_Ack.cmdOK.caption("OK")
+gui.F_Order_Ack.cmdOK.visible(True)
+gui.F_Order_Ack.cmdOK.size(855,375)
+gui.F_Order_Ack.cmdOK.zorder(0)
+gui.F_Order_Ack.cmdOK.position(200,500)
+gui.F_Order_Ack.cmdOK.enabled(True)
+gui.F_Order_Ack.cmdOK.fontname("Arial")
+gui.F_Order_Ack.cmdOK.fontsize(8)
+gui.F_Order_Ack.cmdOK.event(click,cmdok_click)
+gui.F_Order_Ack.cmdOK.disableonclick(20)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.sCustomer.Declare(String)
+Variable.Global.sContactEmail.Declare(String)
+Variable.Global.sOrderNo.Declare(String)
+Variable.Global.sCompNo.Declare(String)
+Variable.Global.sCustPO.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: SMC
+'Project Start Date: 4/17/2011
+'Hooks:
+'  CRM-ENTRY (000030600)
+'  CRM-GAB2 (000030619)
+'  OES0200A-POPULATE-HOOK (000011560)
+'  OES0200A-PRINT-BTN-HOOK (000011890)
+'  OES0200A-SCRIPT-2-HOOK  (000011920) - changed from Script 1
+'  Customer Master Populate (000014350)
+'  Customer Master Script 1 (000014360)
+
+'Notes:
+'  Quote 2127 For Customer Tanis Incorporated
+'
+'  Customers will be able to flag individual customer contacts for e-Acknowledgments through the Script 1 button on the CRM.
+'  Clicking the Print button on an Order Header will bring up a screen that will have "Print" and "e-Acknowledgement" checkboxes, to allow them to select whether the order acknowledgment will be printed and/or e-mailed to the customer. The e-Acknowledgement
+'  checkbox will be greyed out if no customer contacts are flagged for e-Acknowledgments. If e-Acknowledgments are selected but it has already been e-mailed before, the user will be notified and asked if they would like to send a revised acknowlegment or if they
+'  instead would like to print only. Please note that each flagged contact will receive a seperate e-mail (i.e., the contacts will not receive the same e-mail)
+'  e-Acknowledgments will be logged with customer number and date, and will be displayed from a Script button in the Customer master.
+'  NOTE: Courier must be installed and running for this custom to function.
+'
+'  This script will be based on ATG_AUTO_EMAIL_CUST.gas (e-Invoicing script), and changed to e-mail order acknowledments instead of invoices (refer to ATG_Order_Ack_PDF.gas).
+'  Two new tables will need to be created: one that records customer contacts flagged for e-Acknowledgments (based off ATG_CUSTOMER_EMAIL, but without SALES_EMAIL field) and one for the e-mail history (based off ATG_CUST_EMAIL_HIST, with a ORDER_NO
+'  field instead of INVOICE_NO field).
+'  This will e-mailing of Order Acknowledgments will occur of the Print button hook (11890) on the Order Header. This will first bring up a screen with Print and e-Acknowledgement checkboxes. If the Print checkbox is UNCHECKED, v.passed.777777 needs to be set to 1
+'  to override. If the e-Acknowledgment checkbox is CHECKED, it will e-mail the order acknowlegment. See Description above for more conditions to be added.
+'
+'  Order Acknowledgments will be saved in PDF format in Global\Plugins\Orders before e-mailing them out.
+
+'F.Intrinsic.Debug.ShowCallerInfo
+'update for CRM.NET
+F.Intrinsic.Control.If(V.Caller.Hook,=,42900)
+	'Change Script 2 on CRM
+	F.Intrinsic.Control.If(V.Passed.DATA-Mode.String,<>,"5")
+		V.Passed.CRM-cmdGAB-1.Set("e-Order Ack")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.End
+'update for CRM.NET
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,42919)
+	'Manage e-invoicing for selected customer in CRM - Script 2 (Hook 30619)
+	F.Intrinsic.Control.If(V.Passed.DATA-CRM-CompTypeAlpha,=,"C")
+		F.Intrinsic.Control.If(V.Passed.CRM-cboContact,<>,"")
+			F.Intrinsic.Control.If(V.Passed.CRM-lblEmail,<>,"")
+				F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+				V.global.sCompNo.Set(V.Passed.DATA-CRM-CompID)
+				V.Global.sContactEmail.Set(V.Passed.CRM-lblEmail.Trim)
+				F.Intrinsic.Control.CallSub("CustManagement")
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.Msgbox("Please select contact with an e-mail address.")
+				F.Intrinsic.Control.End
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Please select a contact")
+			F.Intrinsic.Control.End
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,11560)
+	'Renames Script 1 on Order Entry
+	V.Passed.000202.Set("e-Order Ack")
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,11890)
+	'Emails/Prints Order acknowldegments to contacts
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	V.global.sCompNo.Set(V.Passed.000006)
+	V.global.sOrderNo.Set(V.Passed.000003)
+	V.Global.sCustomer.Set(V.Passed.000007)
+	F.Intrinsic.Control.CallSub("Show_Order_Opts")
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,11920)
+	'e-Order Ack Audit
+	F.Intrinsic.Control.If(V.Passed.000003.Trim,=,"")
+		F.Intrinsic.UI.Msgbox("Please select an order")
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.ElseIf(V.Passed.000003.Trim,=,"0")
+		F.Intrinsic.UI.Msgbox("Please select an order")
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.Else
+		F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+		V.Global.sOrderNo.Set(V.Passed.000003)
+		V.global.sCompNo.Set(V.Passed.000006)
+		F.Intrinsic.Control.CallSub("Audit")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,14350)
+	'Renames Script 1 on Customer Master
+	V.Passed.000201.Set("E-Order Ack")
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,14360)
+	'E-Order Ack Audit
+	F.Intrinsic.Control.If(V.Passed.000002,<>,"")
+		V.Local.sTemp.Declare(String)
+		F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+		
+		V.global.sCompNo.Set(V.Passed.000002)
+		F.Intrinsic.String.Concat("E-Order Acknowledgments for ",V.Passed.000005,V.Local.sTemp)
+		Gui.F_Audit..Caption(V.Local.sTemp)
+		F.Intrinsic.Control.CallSub("Audit")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please select a customer")
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+Program.Sub.CustManagement.Start
+V.Local.sQuery.Declare(String)
+
+Gui.F_Cust_Management.txtContactEmail.Text(V.Global.sContactEmail)
+
+F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_EML WHERE CUSTOMER='",V.global.sCompNo,"' AND CUST_EMAIL='",V.Global.sContactEmail,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCust",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstCust.EOF,<>,True)
+	Gui.F_Cust_Management.chkContact.value(1)
+F.Intrinsic.Control.Else
+	Gui.F_Cust_Management.chkContact.Value(0)
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstCust.close
+
+Gui.F_Cust_Management..Show
+
+Program.Sub.CustManagement.End
+
+program.sub.cmdsave_click.start
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_Cust_Management!chkContact.Value,=,1)
+	F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_EML WHERE CUSTOMER='",V.global.sCompNo,"' AND CUST_EMAIL='",V.Global.sContactEmail,"'",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRW("rstCust",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conx!rstCust.EOF,=,True)
+		F.ODBC.conx!rstCust.AddNew
+		F.ODBC.conx!rstCust.Set!CUSTOMER(V.global.sCompNo)
+		F.ODBC.conx!rstCust.Set!CUST_EMAIL(V.Global.sContactEmail)
+		F.ODBC.conx!rstCust.Update
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rstCust.close
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("DELETE FROM ATG_3743_ODR_ACK_EML WHERE CUSTOMER='",V.global.sCompNo,"' AND CUST_EMAIL='",V.Global.sContactEmail,"'",V.Local.sQuery)
+	F.ODBC.connection!conx.Execute(V.Local.sQuery)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub("Unload")
+
+program.sub.cmdsave_click.end
+
+Program.Sub.EOrderAck.Start
+V.Local.sQuery.Declare(String)
+V.Local.sContacts.Declare(String)
+V.Local.sDelete.Declare(String)
+V.Local.sDelete.Redim(-1,-1)
+V.Local.iUB.Declare(Long,-1)
+V.Local.bExists.Declare(Boolean)
+V.Local.iC.Declare(Long)
+V.Local.bPDFSaved.Declare(Boolean)
+V.Local.sEmail.Declare(String)
+V.local.sTemp.Declare(String)
+V.Local.sUserName.Declare(String)
+V.Local.sUserEmail.Declare(String)
+V.Local.iRecord.Declare(Long,-1)
+V.Local.sOrderPath.Declare(String)
+V.Local.sBody.Declare(String)
+V.Local.sSubject.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.bFileExists.Declare(Boolean)
+F.Intrinsic.Debug.Stop
+
+F.Intrinsic.Control.CallSub(Get_contacts)
+F.Intrinsic.String.Split(V.Args.sContacts,"!*!",V.Local.sContacts)
+
+'F.Intrinsic.Control.CallSub(Get_body)
+F.Intrinsic.Control.CallSub(Popdefaulttext)
+V.Local.sSubject.Set(V.Args.sSubject)
+V.Local.sBody.Set(V.Args.sBody)
+
+V.Local.iUB.Set(-1)
+F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_EML WHERE CUSTOMER='",V.global.sCompNo,"'",V.Local.sQuery)
+F.ODBC.connection!conx.OpenRecordsetRO("rstCust",V.Local.sQuery)
+F.Intrinsic.Control.DoUntil(V.ODBC.conx!rstCust.EOF,=,True)
+	'If this is the first loop, iPDFSaved=False.  After that, iPDFSaved will be set to True if the order acknowledgment was processed.  So in the first loop, where bPDFSaved=False, is where we process the order ack, and it only happens once.
+	F.Intrinsic.Control.If(V.Local.bPDFSaved,=,False)
+		F.Intrinsic.Control.CallSub(Processack)
+		V.Local.sOrderPath.Set(V.Args.sAttach)
+		
+		F.Intrinsic.File.Exists(V.Local.sOrderPath,V.Local.bPDFSaved)
+		F.Intrinsic.Control.If(V.Local.bPDFSaved,=,False)
+			F.Intrinsic.UI.Msgbox("Unable to send e-Order Acknowledgment")
+			F.Intrinsic.Control.CallSub(Unload)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+	'Checks to see if the contact e-mail written in ATG_ORDER_ACK_EMAILS is still a contact e-mail for the customer in CRM.  Otherwise, it will not send an e-mail out to that address, and address to the "Delete" array, which is purged from ATG_ORDER_ACK_EMAILS at the end of the subroutine
+	V.Local.bExists.Set(False)
+	F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sContacts.UBound,1)
+		F.Intrinsic.String.Split(V.Local.sContacts(v.Local.iC).Trim,"*!*",V.Local.sTemp)
+		F.Intrinsic.Control.If(V.ODBC.conx!rstCust.FieldValTrim!CUST_EMAIL,=,V.Local.sTemp(0))
+			V.Local.bExists.Set(True)
+			F.Intrinsic.Control.ExitFor(V.Local.iC)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iC)
+'	F.Intrinsic.Debug.InvokeDebugger
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		'email
+		F.Intrinsic.Control.If(V.Local.sUserEmail,=,"")
+			F.Global.Security.GetFullName(V.Caller.User,V.Local.sUserName)
+			F.Global.Security.GetUserEmail(V.Caller.User,V.Local.sUserEmail)
+			F.Intrinsic.Control.If(V.Local.sUserEmail,=,"")
+				V.Local.sUserName.Set(V.Local.sTemp(1))
+				V.Local.sUserEmail.Set(V.Local.sTemp(0))
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Debug.Stop
+'		F.Global.Messaging.CreateEMMessage(V.Local.sTemp(0),V.Local.sTemp(1),V.Local.sUserEmail,V.Local.sUserName,V.Local.sSubject,V.Local.sBody)
+		F.Global.Messaging.CreateEMMessage(V.Local.sTemp(0),V.Local.sTemp(1),V.Local.sUserEmail,V.Local.sUserName,V.Local.sSubject,V.Local.sBody,V.Local.sOrderPath,False)
+		'write record
+		F.ODBC.Connection!conx.OpenRecordsetRW("rstRecord","SELECT * FROM ATG_3743_ODR_ACK_HST")
+		
+		F.ODBC.conx!rstRecord.AddNew
+		F.ODBC.conx!rstRecord.Set!CUSTOMER(V.global.sCompNo)
+		F.ODBC.conx!rstRecord.Set!ORDER_NO(V.global.sOrderNo)
+		F.ODBC.conx!rstRecord.Set!CONTACT(V.Local.sTemp(0))
+		F.ODBC.conx!rstRecord.Set!EMAIL_DATE(V.Ambient.Now)
+
+		F.ODBC.conx!rstRecord.Update
+		F.ODBC.conx!rstRecord.Close
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+		F.Intrinsic.Control.If(V.Local.iUB,=,0)
+			V.Local.sDelete.Redim(0,0)
+		F.Intrinsic.Control.Else
+			V.Local.sDelete.RedimPreserve(0,V.Local.iUB)
+		F.Intrinsic.Control.EndIf
+		V.Local.sDelete(v.Local.iUB).Set(V.ODBC.conx!rstCust.FieldValTrim!CUST_EMAIL)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rstCust.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.conx!rstCust.Close
+
+F.Intrinsic.Control.If(V.Local.sDelete.UBound,>,0)
+	F.Intrinsic.String.Join(V.Local.sDelete,"*!*",V.Local.sDelete)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.CallSub(Delete_contacts,"sDelete",V.Local.sDelete)
+'F.Intrinsic.Control.CallSub("Unload")
+
+Program.Sub.EOrderAck.End
+
+Program.Sub.Audit.Start
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,11910)
+	F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_HST WHERE ORDER_NO='",V.Global.sOrderNo,"' ORDER BY ORDER_NO ASC, CUSTOMER ASC, EMAIL_DATE ASC, CONTACT ASC",V.Local.sQuery)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_HST WHERE CUSTOMER='",V.global.sCompNo,"' ORDER BY ORDER_NO ASC, CUSTOMER ASC, EMAIL_DATE ASC, CONTACT ASC",V.Local.sQuery)
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!conx.OpenRecordsetRO("rstAudit",V.Local.sQuery)
+F.Intrinsic.Control.DoUntil(V.ODBC.conx!rstAudit.EOF,=,True)
+	Gui.F_Audit.lvwAudit.AddListItem(V.ODBC.conx!rstAudit.FieldValTrim!LOG_ID,V.ODBC.conx!rstAudit.FieldValTrim!ORDER_NO)
+	Gui.F_Audit.lvwAudit.SetListItemSubItemText(V.ODBC.conx!rstAudit.FieldValTrim!LOG_ID,1,V.ODBC.conx!rstAudit.FieldValTrim!EMAIL_DATE)
+	Gui.F_Audit.lvwAudit.SetListItemSubItemText(V.ODBC.conx!rstAudit.FieldValTrim!LOG_ID,2,V.ODBC.conx!rstAudit.FieldValTrim!CONTACT)
+	F.ODBC.conx!rstAudit.MoveNext
+F.Intrinsic.Control.Loop
+
+Gui.F_Audit..Show
+
+Program.Sub.Audit.End
+
+Program.Sub.ProcessAck.Start
+V.Local.sParamName.Declare(String)
+V.Local.sParamVal.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sPN.Declare(String)
+V.Local.sPV.Declare(String)
+V.Local.sCallParams.Declare(String)
+V.Local.sAttach.Declare(String)
+V.Local.sVersion.Declare(String)
+V.Local.bExists.Declare(Boolean)
+
+'Set attachment filename and path
+F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\Orders",V.Local.sAttach)
+F.Intrinsic.File.DirExists(V.Local.sAttach,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sAttach)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Concat(V.Local.sAttach,"\",V.Global.sOrderNo,".pdf",V.Local.sAttach)
+
+'Generate BI Data
+F.Intrinsic.String.Concat(V.Global.sOrderNo,"!*!P!*! !*!|~|CRYSTAL-OVERRIDE|~|",V.Local.sCallParams)
+F.Global.General.CallWrapperSync(910050,V.Local.sCallParams)
+F.Intrinsic.Control.CallSub(Getrptid)
+
+'Call BI Order Acknowledgement report
+V.Local.sPN.Set("Terminal*!*ReportID*!*IncludesTax*!*Dec")
+F.Intrinsic.String.Concat(V.caller.Terminal,"*!*",V.args.RptID,"*!**!*.2",V.Local.sPV)
+F.Intrinsic.String.Split(V.Local.sPN,"*!*",V.Local.sParamName)
+F.Intrinsic.String.Split(V.Local.sPV,"*!*",V.Local.sParamVal)
+F.Global.BI.SaveReport(V.args.RptID,0,V.Local.sParamName,V.Local.sParamVal,V.Local.sAttach)
+
+F.Intrinsic.Variable.AddRV("sAttach",V.Local.sAttach)
+
+Program.Sub.ProcessAck.End
+
+Program.Sub.GetRptID.Start
+V.Local.sQuery.Declare(String)
+V.Local.sReportID.Declare(String)
+V.Local.sOrderNo.Declare(String)
+
+F.Intrinsic.String.LPad(V.Global.sOrderNo,"0",7,V.Local.sOrderNo)
+
+F.Intrinsic.String.concat("SELECT * FROM V_BI_ACKNWLDGMNT WHERE ORDER_NO='",V.Local.sOrderNo,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstRptID",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstRptID.EOF,<>,True)
+	V.local.sReportID.set(V.odbc.conx!rstRptID.fieldvaltrim!RPTID)
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Unable to find Order Data.  Please contact Global Shop.")
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstRptID.Close
+
+F.Intrinsic.Variable.AddRV("RptID",V.Local.sReportID)
+
+
+
+Program.Sub.GetRptID.End
+
+program.sub.f_order_ack_unload.start
+V.Passed.777777.Set(1)
+F.Intrinsic.Control.CallSub(Unload)
+
+program.sub.f_order_ack_unload.end
+
+program.sub.cmdok_click.start
+V.Local.sQuery.Declare(String)
+V.Local.bSent.Declare(Boolean)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.F_Order_Ack!chkeOrderAck.Value,=,1)
+	F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_HST WHERE ORDER_NO='",V.Global.sOrderNo,"' ORDER BY ORDER_NO ASC, CUSTOMER ASC, EMAIL_DATE ASC, CONTACT ASC",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rstHist",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conx!rstHist.EOF,<>,True)
+		V.Local.bSent.Set(True)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rstHist.Close
+
+	F.Intrinsic.Control.If(V.Local.bSent,=,True)
+		F.Intrinsic.String.Concat("This Order Acknowledgment has already been e-mailed to the customer.  Would you like to re-send?",V.Ambient.NewLine,V.Ambient.NewLine,"Clicking Yes will re-send the Order Acknowledgment and Print (If selected).  Clicking No will Print only.  Clicking Cancel will do neither.",V.Local.sRet)
+		F.Intrinsic.UI.Msgbox(V.Local.sRet,"Re-send?",3,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,6)
+			F.Intrinsic.Control.CallSub(Eorderack)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,=,7)
+			Gui.F_Order_Ack.chkPrint.Value(1)
+			Gui.F_Order_Ack.chkeOrderAck.Value(0)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,=,2)
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.CallSub(Eorderack)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Screen.F_Order_Ack!chkPrint.Value,=,0)
+		V.Passed.777777.Set(1)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.If(V.Screen.F_Order_Ack!chkPrint.Value,=,0)
+		F.Intrinsic.UI.Msgbox("Please select an Order Acknowledgment option")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Unload)
+
+
+program.sub.cmdok_click.end
+
+Program.Sub.Show_Order_Opts.Start
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_EML WHERE CUSTOMER='",V.global.sCompNo,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstContacts",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstContacts.EOF,=,True)
+	Gui.F_Order_Ack.chkeOrderAck.Value(0)
+	Gui.F_Order_Ack.chkeOrderAck.Enabled(False)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Concat("SELECT * FROM ATG_3743_ODR_ACK_HST WHERE ORDER_NO='",V.Global.sOrderNo,"' ORDER BY ORDER_NO ASC, CUSTOMER ASC, EMAIL_DATE ASC, CONTACT ASC",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rstHist",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conx!rstHist.EOF,=,True)
+		Gui.F_Order_Ack.chkeOrderAck.Value(1)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.conx!rstHist.Close
+F.Intrinsic.Control.EndIf
+Gui.F_Order_Ack.chkPrint.Value(1)
+F.ODBC.conx!rstContacts.Close
+
+Gui.F_Order_Ack..Show
+
+Program.Sub.Show_Order_Opts.End
+
+Program.Sub.Get_Body.Start
+'Replaced with PopDefaultText
+V.Local.sFile.Declare(String)
+V.Local.sBody.Declare(String)
+V.Local.bFileExists.Declare(String)
+
+F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\GAB\GAS\eOrderAck_Body_Text.txt",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bFileExists)
+F.Intrinsic.Control.If(V.Local.bFileExists,=,True)
+	F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sBody)
+F.Intrinsic.Control.Else
+	V.Local.sBody.Set("e-Order Acknowledgment")
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sBody)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("sBody",V.Local.sBody)
+
+Program.Sub.Get_Body.End
+
+Program.Sub.Get_Contacts.Start
+V.Local.sQuery.Declare(String)
+V.Local.sContacts.Declare(String)
+V.Local.sContacts.Redim(-1,-1)
+V.Local.iUB.Declare(Long,-1)
+V.local.sTemp.Declare(String)
+
+F.Intrinsic.String.Concat("SELECT EMAIL1, NAME FROM CONTACT WHERE TYPE='C' AND CUST='",V.global.sCompNo,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCust",V.Local.sQuery)
+F.Intrinsic.Control.DoUntil(V.ODBC.conx!rstCust.EOF,=,True)
+	F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+	F.Intrinsic.Control.If(V.Local.iUB,=,0)
+		V.Local.sContacts.Redim(0,0)
+	F.Intrinsic.Control.Else
+		V.Local.sContacts.RedimPreserve(0,V.Local.iUB)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.String.Concat(V.ODBC.conx!rstCust.FieldValTrim!EMAIL1,"*!*",V.ODBC.conx!rstCust.FieldValTrim!NAME,V.Local.stemp)
+	V.Local.sContacts(v.Local.iUB).Set(V.Local.sTemp)
+	F.ODBC.conx!rstCust.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.conx!rstCust.Close
+
+F.Intrinsic.Control.If(V.Local.sContacts.UBound,>,0)
+	F.Intrinsic.String.Join(V.Local.sContacts,"!*!",V.Local.sContacts)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Variable.AddRV("sContacts",V.Local.sContacts)
+
+Program.Sub.Get_Contacts.End
+
+Program.Sub.Delete_Contacts.Start
+V.Local.sDelete.Declare(String)
+V.Local.iC.Declare(Long)
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.Control.If(V.Args.sDelete,<>,"")
+	F.Intrinsic.String.Split(V.args.sDelete,"*!*",V.Local.sDelete)
+	F.Intrinsic.Control.For(V.Local.iC,0,V.Local.sDelete.UBound,1)
+		F.Intrinsic.String.Concat("DELETE FROM ATG_3743_ODR_ACK_EML WHERE CUSTOMER='",V.global.sCompNo,"' AND CUST_EMAIL='",V.Local.sDelete(v.Local.iC),"'",V.Local.sQuery)
+		F.ODBC.connection!conx.Execute(V.Local.sQuery)
+	F.Intrinsic.Control.Next(V.Local.iC)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Delete_Contacts.End
+
+Program.Sub.PopDefaultText.Start
+'Added 11-24-10 for USPLabs
+V.Local.sFile.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sSubject.Declare(String)
+V.Local.sBody.Declare(String)
+V.Local.sError.Declare(String)
+
+Function.Intrinsic.Control.SetErrorHandler("PopDefaultText_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat(V.Caller.PluginsDir,"\GAB\GAS\Order_Ack_PDF.txt",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.CallSub(Getcustinfo)
+
+F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sText)
+F.Intrinsic.String.Replace(V.local.sText,"%ORDER%",V.Global.sOrderNo,V.Local.sText)
+F.Intrinsic.String.Replace(V.Local.sText,"%CUSTPO%",V.Global.sCustPO,V.Local.sText)
+F.Intrinsic.String.Replace(V.Local.sText,"%CUSTOMER%",V.global.sCustomer,V.Local.sText)
+F.Intrinsic.String.Split(V.Local.sText,"*!*",V.Local.sText)
+
+V.Local.sSubject.Set(V.Local.sText(0))
+F.Intrinsic.Control.If(V.Local.sSubject,=,"")
+	F.Intrinsic.String.Concat("e-Order Acknowledgment ",V.Global.sOrderNo,V.Local.sSubject)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Local.sText.UBound,>,0)
+	V.Local.sBody.Set(V.Local.sText(1))
+F.Intrinsic.Control.Else
+	V.Local.sBody.Set(V.Local.sSubject)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("sSubject",V.Local.sSubject)
+F.Intrinsic.Variable.AddRV("sBody",V.Local.sBody)
+
+Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.Label("PopDefaultText_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+
+
+
+Program.Sub.PopDefaultText.End
+
+Program.Sub.GetCustInfo.Start
+V.Local.sQuery.Declare(String)
+V.Local.sCustPO.Declare(String)
+V.Local.sError.Declare(String)
+
+Function.Intrinsic.Control.SetErrorHandler("GetCustPO_Err")
+Function.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.String.Concat("SELECT CUSTOMER_PO FROM V_ORDER_HEADER WHERE ORDER_NO='",V.Global.sOrderNo,"'",V.Local.sQuery)
+F.ODBC.Connection!conx.OpenRecordsetRO("rstCustPO",V.Local.sQuery)
+F.Intrinsic.Control.If(V.ODBC.conx!rstCustPO.EOF,<>,True)
+	V.Global.sCustPO.Set(V.ODBC.conx!rstCustPO.FieldValTrim!CUSTOMER_PO)
+F.Intrinsic.Control.Else
+	F.ODBC.conx!rstCustPO.Close
+	F.Intrinsic.String.LPad(V.Global.sOrderNo,"0",7,V.Local.sQuery)
+	F.Intrinsic.String.Concat("SELECT CUSTOMER_PO FROM V_ORDER_HEADER WHERE ORDER_NO='",V.Local.sQuery,"'",V.Local.sQuery)
+	F.ODBC.Connection!conx.OpenRecordsetRO("rstCustPO",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.conx!rstCustPO.EOF,<>,True)
+		V.Global.sCustPO.Set(V.ODBC.conx!rstCustPO.FieldValTrim!CUSTOMER_PO)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+F.ODBC.conx!rstCustPO.Close
+
+'F.Intrinsic.String.Concat("SELECT NAME_CUSTOMER FROM V_CUSTOMER_MASTER WHERE CUSTOMER='",V.Global.sCompNo,"'",V.Local.sQuery)
+'F.ODBC.Connection!conx.OpenRecordsetRO("rstCust",V.Local.sQuery)
+'F.Intrinsic.Control.If(V.ODBC.conx!rstCust.EOF,<>,True)
+'	V.global.sCustomer.Set(V.ODBC.conx!rstCust.FieldValTrim!NAME_CUSTOMER)
+'F.Intrinsic.Control.EndIf
+'F.ODBC.conx!rstCust.Close
+
+Function.Intrinsic.Control.ExitSub
+Function.Intrinsic.Control.Label("GetCustPO_Err")
+Function.Intrinsic.Control.If(Variable.Ambient.ErrorNumber,"<>",0)
+	Function.Intrinsic.String.Concat("Error Occurred ",Variable.Ambient.ErrorNumber," with description ",Variable.Ambient.ErrorDescription,Variable.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+
+
+Program.Sub.GetCustInfo.End
+
+Program.Sub.Comments.Start
+${$0$}$ATG_3743_Auto_Order_Ack$}$JCT$}$4/8/2016
+${$1$}$$}$$}$6$}$14360$}$Script 1$}$4/8/2016 10:10:28 AM$}$(Program: AR0020GI; Screen: ARS002A1)
+
+${$1$}$$}$$}$5$}$11920$}$OES0200A-SCRIPT-2-HOOK$}$4/8/2016 10:10:13 AM$}$(Program: ORD200; Screen: OES0200A)
+
+${$1$}$$}$$}$4$}$42919$}$CRM.NET-GAB2$}$4/8/2016 10:09:42 AM$}$(Program: Global_Shop_CRM.exe; Screen: )
+
+${$1$}$$}$$}$3$}$14350$}$Populate Hook$}$4/8/2016 10:09:25 AM$}$(Program: AR0020GI; Screen: ARS002A1)
+
+${$1$}$$}$$}$2$}$11890$}$OES0200A-PRINT-BTN-HOOK$}$4/8/2016 10:09:10 AM$}$(Program: ORD200; Screen: OES0200A)
+
+${$1$}$$}$$}$1$}$11560$}$OES0200A-POPULATE-HOOK$}$4/8/2016 10:08:51 AM$}$(Program: ORD200; Screen: OES0200A)
+
+${$1$}$$}$$}$0$}$42900$}$CRM.NET-ENTRY$}$4/8/2016 10:08:23 AM$}$(Program: Global_Shop_CRM.exe; Screen: )
+
+Program.Sub.Comments.End
+
